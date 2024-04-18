@@ -22,6 +22,9 @@ export const Login = () => {
         userToLogin
       );
       console.log("you logged in", response.data);
+
+      localStorage.setItem("authToken", response.data.authToken);
+
       //only if you create the new user, then you navigate to the login page
 
       //if you log in successfully then store the authToken from the server in localstorage
@@ -29,7 +32,6 @@ export const Login = () => {
 
       await authenticateUser();
       nav("/home");
-      //localStorage.setItem("authToken", response.data.authToken);
     } catch (err) {
       console.log(
         "there was an error signing up",

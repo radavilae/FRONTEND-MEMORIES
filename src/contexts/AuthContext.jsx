@@ -12,7 +12,7 @@ const AuthWrapper = ({ children }) => {
 
   //this function checks if there is a token and if so, if it is valid
 
-  const autheticateUser = async () => {
+  const authenticateUser = async () => {
     //check the localstoage for the token
     const theToken = localStorage.getItem("authToken");
     if (theToken) {
@@ -45,13 +45,26 @@ const AuthWrapper = ({ children }) => {
 
   //everytime the application mounts, we try to authenticate the user
   useEffect(() => {
-    autheticateUser();
-  });
+    authenticateUser();
+  }, []);
+
+  //logout function
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    authenticateUser();
+  };
 
   return (
     //the value is basically the frig, where all the food is stored
     <AuthContext.Provider
-      value={{ user, setUser, isLoading, isLoggedIn, autheticateUser }}
+      value={{
+        user,
+        setUser,
+        isLoading,
+        isLoggedIn,
+        authenticateUser,
+        handleLogout,
+      }}
     >
       {children}
     </AuthContext.Provider>

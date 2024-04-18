@@ -7,10 +7,10 @@ import { AuthWrapper } from "./contexts/AuthContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthWrapper>
-      <BrowserRouter>
+    <BrowserRouter>
+      <AuthWrapper>
         <App />
-      </BrowserRouter>
-    </AuthWrapper>
+      </AuthWrapper>
+    </BrowserRouter>
   </React.StrictMode>
 );

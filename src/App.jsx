@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { SignUp } from "./components/SignUp";
 import { Login } from "./components/Login";
 import { HomePage } from "./components/HomePage";
+import { IsProtected } from "./components/IsProtected";
 
 function App() {
   //this is how you grab data from the context
