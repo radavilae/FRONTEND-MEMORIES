@@ -19,9 +19,11 @@ const AuthWrapper = ({ children }) => {
       try {
         //console.log("here is the token", theToken);
         //this is if there is a token then we need to verify it
-        const response = await axios.get("http://localhost:5005/auth/verify", {
+
+        const response = await axios.post("http://localhost:5005/auth/verify", {
           headers: {
             authorization: `Bearer ${theToken}`,
+            post: `Bearer ${theToken}`,
           },
         });
         console.log("from the authenticate user function", response.data);

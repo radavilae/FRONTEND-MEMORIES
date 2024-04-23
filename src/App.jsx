@@ -2,9 +2,10 @@ import { useContext } from "react";
 import "./App.css";
 import { AuthContext } from "./contexts/AuthContext";
 import { Route, Routes } from "react-router-dom";
-import { SignUp } from "./components/SignUp";
-import { Login } from "./components/Login";
-import { HomePage } from "./components/HomePage";
+import { SignUp } from "./pages/SignUp";
+import { Login } from "./pages/Login";
+import { HomePage } from "./pages/HomePage";
+import CreateNewPostPage from "./pages/CreateNewPostPage";
 import { IsProtected } from "./components/IsProtected";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+
         <Route
           path="/home"
           element={
@@ -24,6 +26,7 @@ function App() {
             </IsProtected>
           }
         />
+        <Route path="/post/" element={<CreateNewPostPage />} />
 
         <Route path="*" element={<h1>404 Not found</h1>} />
       </Routes>
